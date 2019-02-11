@@ -201,14 +201,64 @@ class W1{
 }
 
 class W2{
-  public static boolean W (boolean[] pIn, boolean qIn[]) throws inputDimmensionMismatch{
+  public static boolean[] p, q, r;
+  
+  public static boolean W (boolean[] pIn, boolean qIn[], boolean rIn[]) throws inputDimmensionMismatch{
     p = pIn;
     q = qIn;
-    
+    r = rIn;
     class LogicalFuncs {
       
+      public boolean f1(){
+        Funcs.debug("f1 = " + f3() + " && " + f4() + " = " + f3() && f4());
+        return f3() && f4();
+      }
+      
+      public boolean f2(){
+        boolean f2Result = false;
+        for( int x = 0; x < p.length; x++)
+          f2Result = f2Result || f5(x);
+        Funcs.debug("f2 = Exists f5(x) = " + f2Result);
+        return f2Result;
+      }
+      
+      public boolean f3(){
+        boolean f3Result = true;
+        for( int x = 0; x < p.length; x++)
+          f3Result = f3Result && ( Funcs.imply(p[x], f6(x) ) );
+        Funcs.debug("f3 = All(x) P(x) -> f6(x)" + f3Result);
+        return f3Result;
+      }
+      
+      public boolean f4(){
+        boolean f4Result = false;
+        for( int x = 0; x < p.length; x++)
+          f4Result = f4Result || f7(x);
+        Funcs.debug("f4 = Exists f7(x) = " + f4Result);
+        return f4Result;
+      }
+      
+      public boolean f5(int x){
+        Funcs.debug("f5 = " + p[x] + " && " + r[x]);
+        return p[x] && r[x];
+      }
+      
+      public boolean f6(int x){
+        Funcs.debug("f6 = " + q[x] + " || " + r[x]);
+        return q[x] || r[x];
+      }
+      
+      public boolean f7(int x){
+        Funcs.debug("f7 = " + q[x] + " && " + r[x]);
+        return q[x] && r[x];
+      }
+      
     };
-    boolean w = Funcs.imply( f1(), 
+    
+    LogicalFuncs logicalFuncs = new LogicalFuncs();
+    Funcs.debug("W = " + logicalFuncs.f1() + " -> " + logicalFuncs.f2() + " = " 
+                  + Funcs.imply( logicalFuncs.f1(), logicalFuncs.f2()) );
+    boolean w = Funcs.imply( logicalFuncs.f1(), logicalFuncs.f2());
        
   }
 }
