@@ -1,6 +1,6 @@
 # CS_278_Lab3
 NMSU class by H. leung Lab3. 
-
+```
 (
 	(
 		All, 
@@ -70,3 +70,4 @@ f2 = false
 f1 = true
 w = false
 Is not model
+```
