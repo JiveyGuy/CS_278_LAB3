@@ -1,13 +1,10 @@
 import java.util.Scanner;
 
 /**
- * This program simply takes input from the coandline arguments
- *  and parses it to see if it matches any of the keywords in the
- *  key words.txt file.
- *
+ * This program tests predicates W1 and W2 for models and counter models. 
  * @author  Jason Ivey
  * @version .0
- * @since   2017-02-06
+ * @since   2019-02-11
  * 
  * * The runtime of this program for W1 is 0() = n^2
  * * The runtime of this program for W2 is 0() = 2^( (n^2)^2 )
