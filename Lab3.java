@@ -60,7 +60,7 @@ public class Lab3{
     boolean sentinel = false;
     while( !sentinel ){
       
-      System.out.println("Enter help for help or input: ");
+      System.out.print("Enter help for help or input: ");
       String inputString = input.nextLine();
       
       if( inputString.trim().length() == 0 ){ //exit on no output
